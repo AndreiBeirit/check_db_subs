@@ -6,7 +6,7 @@ import json
 db_config = {
     'user': os.environ["DB_USER"],
     'password': os.environ["DB_PASSWORD"],
-    'host': os.environ["DB_HOST"],
+    'host': 51.250.120.111,
     'port': 1992,
     'database': os.environ["DB_DATABASE"]
 }
