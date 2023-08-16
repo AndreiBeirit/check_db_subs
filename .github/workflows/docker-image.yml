@@ -39,15 +39,17 @@ jobs:
           tags: phermaht/check_subs:latest
 
       - name: Deploy to remote server
-        uses: webfactory/ssh-agent@v0.7.0
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          ssh-private-key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          SSH_REMOTE_USER: rnd-user
-          SSH_REMOTE_HOST: 51.250.120.111
-          SSH_SCRIPT: |
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_SSH_USERNAME }}
+          password: ${{ secrets.DEPLOY_SSH_PASSWORD }}
+          port: 22
+          script: |
+            # Ваши команды развертывания
             docker stop check_subs || true
             docker rm check_subs || true
             docker pull phermaht/check_subs:latest
             docker run -d --name check_subs phermaht/check_subs:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
