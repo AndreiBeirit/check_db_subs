@@ -8,7 +8,7 @@ db_config = {
     'password': os.environ["DB_PASSWORD"],
     'host': os.environ["DB_HOST"],
     'port': os.environ["DB_PORT"],
-    'database': os.environ["DB_DB"]
+    'database': os.environ["DB_DATABASE"]
 }
 
 WEBHOOK_URL = os.environ["WEBHOOK_URL"]
