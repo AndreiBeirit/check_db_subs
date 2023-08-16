@@ -1,0 +1,1 @@
+00 13 * * * /usr/local/bin/python3 /app/db_subs.py > /app/log.txt 2>&1
