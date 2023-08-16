@@ -25,6 +25,8 @@ query = (
 connection = None
 cursor = None
 
+print(os.environ)
+
 try:
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
