@@ -3,19 +3,19 @@ import os
 import requests
 import json
 
-user = os.environ["DB_USER"]
-password = os.environ["DB_PASSWORD"]
-host = os.environ["DB_HOST"]
-port = 1992
-database = os.environ["DB_DATABASE"]
+user_db = os.environ["user"]
+password_db = os.environ["password"]
+host_db = os.environ["host"]
+port_db = 1992
+database_db = os.environ["database"]
 
-WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
+WEBHOOK_URL = os.environ["webhook"]
 
-print("DB_USER:", os.environ["DB_USER"])
-print("DB_PASSWORD:", os.environ["DB_PASSWORD"])
-print("DB_DATABASE:", os.environ["DB_DATABASE"])
-print("DB_HOST:", os.environ["DB_HOST"])
-print("WEBHOOK_URL:", os.environ["SLACK_WEBHOOK"])
+print("user_db:", os.environ["user"])
+print("password_db:", os.environ["password"])
+print("database_db:", os.environ["database"])
+print("host_db:", os.environ["host"])
+print("WEBHOOK_URL:", os.environ["webhook"])
 
 # query = (
 #     "SELECT Email, EmailPassword, CreateDate FROM Accounts WHERE DATE(CreateDate) = DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND `Status` IN (1,2,5,9,15,20,21)"
