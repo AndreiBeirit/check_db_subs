@@ -3,11 +3,12 @@ import os
 import requests
 import json
 
+DB_PORT = int(os.environ["DB_PORT"])
 db_config = {
     'user': os.environ["DB_USER"],
     'password': os.environ["DB_PASSWORD"],
     'host': os.environ["DB_HOST"],
-    'port': int(os.environ["DB_PORT"]),
+    'port': DB_PORT,
     'database': os.environ["DB_DATABASE"]
 }
 
