@@ -44,7 +44,7 @@ jobs:
         tags: phermaht/check_subs:latest
   
     - name: Deploy Docker
-      uses: appleboy/ssh-action@v0.2.0
+      uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_SSH_USERNAME }}
