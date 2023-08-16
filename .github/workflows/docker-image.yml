@@ -44,8 +44,8 @@ jobs:
           ssh-private-key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          SSH_REMOTE_USER: ${{ secrets.DEPLOY_SSH_USERNAME }}
-          SSH_REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          SSH_REMOTE_USER: rnd-user
+          SSH_REMOTE_HOST: 51.250.120.111
           SSH_SCRIPT: |
             docker stop check_subs || true
             docker rm check_subs || true
