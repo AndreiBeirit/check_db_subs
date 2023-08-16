@@ -9,7 +9,7 @@ host_db = os.environ["host"]
 port_db = 1992
 database_db = os.environ["database"]
 
-webhook_url = os.environ["webhook"]
+webhook_url = os.environ["SLACK_WEBHOOK"]
 
 print("user_db:", os.environ["user"])
 print("password_db:", os.environ["password"])
