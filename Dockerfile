@@ -15,6 +15,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
     && touch /var/log/cron.log \
     && chmod 777 /var/log/cron.log
 
+ENV DB_HOST=${DB_HOST}
 ENV DB_USER=${DB_USER}
 ENV DB_PASSWORD=${DB_PASSWORD}
 ENV DB_DATABASE=${DB_DATABASE}
