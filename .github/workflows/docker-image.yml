@@ -40,7 +40,7 @@ jobs:
           tags: phermaht/check_subs:latest
 
       - name: Deploy to remote server
-        uses: webfactory/ssh-agent@v0.5.0
+        uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
         env:
