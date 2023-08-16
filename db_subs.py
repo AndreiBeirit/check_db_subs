@@ -4,11 +4,11 @@ import requests
 import json
 
 
-user: os.environ["DB_USER"],
-password: os.environ["DB_PASSWORD"],
-host: '84.201.187.79',
-port: 1992,
-database: os.environ["DB_DATABASE"]
+user = os.environ["DB_USER"],
+password = os.environ["DB_PASSWORD"],
+host = '84.201.187.79',
+port = 1992,
+database = os.environ["DB_DATABASE"]
 
 
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
