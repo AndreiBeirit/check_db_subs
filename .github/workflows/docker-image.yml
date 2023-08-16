@@ -15,7 +15,7 @@ env:
   slack_webhook: ${{ secrets.WEBHOOK }}
 
 jobs:
-  build_and_deploy:
+  build_and_pull:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,3 +38,21 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: phermaht/check_subs:latest
+
+    - name: Deploy Docker image to remote server
+      uses: appleboy/ssh-action@v0.2.0
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_SSH_USERNAME }}
+        key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          # Остановить и удалить существующий контейнер (если он существует)
+          docker stop sub_check || true
+          docker rm sub_check || true
+          
+          # Подтянуть последний образ с Docker Hub
+          docker pull phermaht/check_subs:latest
+          
+          # Запустить новый контейнер
+          docker run -d --name sub_check phermaht/check_subs:latest
