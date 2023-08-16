@@ -11,11 +11,11 @@ DB_DB = os.environ["database"]
 WEBHOOK_URL = os.environ["webhook"]
 
 db_config = {
-    'user': f"{DB_USER}",
-    'password': f"{DB_PASSWORD}",
-    'host': f"{DB_HOST}",
-    'port': f"{DB_PORT}",
-    'database': f"{DB_DB}"
+    'user': DB_USER,
+    'password': DB_PASSWORD,
+    'host': DB_HOST,
+    'port': DB_PORT,
+    'database': DB_DB"
 }
 
 query = (
