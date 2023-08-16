@@ -3,18 +3,18 @@ import os
 import requests
 import json
 
-user_db = os.environ["DB_USER"]
-password_db = os.environ["DB_PASSWORD"]
-host_db = os.environ["DB_HOST"]
+user_db = os.environ["user_db"]
+password_db = os.environ["password_db"]
+host_db = os.environ["host_db"]
 port_db = 1992
-database_db = os.environ["DB_DATABASE"]
+database_db = os.environ["database_db"]
 
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
-print("user_db:", os.environ["DB_USER"])
-print("password_db:", os.environ["DB_PASSWORD"])
-print("database_db:", os.environ["DB_DATABASE"])
-print("host_db:", os.environ["DB_HOST"])
+print("user_db:", os.environ["user_db"])
+print("password_db:", os.environ["password_db"])
+print("database_db:", os.environ["database_db"])
+print("host_db:", os.environ["host_db"])
 print("WEBHOOK_URL:",os.environ["SLACK_WEBHOOK"])
 
 # query = (
