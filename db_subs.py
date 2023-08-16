@@ -3,20 +3,15 @@ import os
 import requests
 import json
 
-DB_USER = os.environ["db_user"]
-DB_PASSWORD = os.environ["db_password"]
-DB_HOST = os.environ["db_host"]
-DB_PORT = os.environ["db_port"]
-DB_DB = os.environ["db_database"]
-WEBHOOK_URL = os.environ["slack_webhook"]
-
 db_config = {
-    'user': DB_USER,
-    'password': DB_PASSWORD,
-    'host': DB_HOST,
-    'port': DB_PORT,
-    'database': DB_DB
+    'user': os.environ["DB_USER"],
+    'password': os.environ["DB_PASSWORD"],
+    'host': os.environ["DB_HOST"],
+    'port': os.environ["DB_PORT"],
+    'database': os.environ["DB_DB"]
 }
+
+WEBHOOK_URL = os.environ["WEBHOOK_URL"]
 
 query = (
     "SELECT Email, EmailPassword, CreateDate FROM Accounts WHERE DATE(CreateDate) = DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND `Status` IN (1,2,5,9,15,20,21)"
