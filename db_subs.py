@@ -15,7 +15,7 @@ db_config = {
     'password': DB_PASSWORD,
     'host': DB_HOST,
     'port': DB_PORT,
-    'database': DB_DB"
+    'database': DB_DB
 }
 
 query = (
