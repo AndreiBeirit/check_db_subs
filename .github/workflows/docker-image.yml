@@ -43,7 +43,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
-          password: ${{ secrets.DEPLOY_SSH_PASSWORD }}
+          key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
           port: 22
           script: |
             # Ваши команды развертывания
@@ -51,5 +51,3 @@ jobs:
             docker rm check_subs || true
             docker pull phermaht/check_subs:latest
             docker run -d --name check_subs phermaht/check_subs:latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
