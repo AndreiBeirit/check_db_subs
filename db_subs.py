@@ -3,13 +3,13 @@ import os
 import requests
 import json
 
-db_config = {
-    'user': os.environ["DB_USER"],
-    'password': os.environ["DB_PASSWORD"],
-    'host': '84.201.187.79',
-    'port': 1992,
-    'database': os.environ["DB_DATABASE"]
-}
+
+user: os.environ["DB_USER"],
+password: os.environ["DB_PASSWORD"],
+host: '84.201.187.79',
+port: 1992,
+database: os.environ["DB_DATABASE"]
+
 
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
@@ -21,7 +21,7 @@ connection = None
 cursor = None
 
 try:
-    connection = mysql.connector.connect(**db_config)
+    connection = mysql.connector.connect(user=f"{user}", password=f"{password}", host=f"{host}", database=f"{database}", port=1992)
     cursor = connection.cursor()
     cursor.execute(query)
     results = cursor.fetchall()
