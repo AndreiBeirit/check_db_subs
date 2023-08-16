@@ -11,7 +11,6 @@ env:
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
   DB_USER: ${{ secrets.DB_USER }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  DB_HOST: ${{ secrets.DB_HOST }}
   DB_DB: ${{ secrets.DB_DATABASE }}
   WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
