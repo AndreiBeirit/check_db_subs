@@ -3,13 +3,13 @@ import os
 import requests
 import json
 
-user_db = os.environ["user"]
-password_db = os.environ["password"]
-host_db = os.environ["host"]
+user_db = os.environ["DB_USER"]
+password_db = os.environ["DB_PASSWORD"]
+host_db = os.environ["DB_HOST"]
 port_db = 1992
-database_db = os.environ["database"]
+database_db = os.environ["DB_DATABASE"]
 
-webhook_url = os.environ["SLACK_WEBHOOK"]
+WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
 print("user_db:", os.environ["user"])
 print("password_db:", os.environ["password"])
