@@ -11,7 +11,7 @@ db_config = {
     'database': os.environ["DB_DATABASE"]
 }
 
-WEBHOOK_URL = os.environ["WEBHOOK_URL"]
+WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
 query = (
     "SELECT Email, EmailPassword, CreateDate FROM Accounts WHERE DATE(CreateDate) = DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND `Status` IN (1,2,5,9,15,20,21)"
