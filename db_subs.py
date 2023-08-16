@@ -5,7 +5,7 @@ import json
 
 user = os.environ["DB_USER"]
 password = os.environ["DB_PASSWORD"]
-host = "84.201.187.79"
+host = os.environ["DB_HOST"]
 port = 1992
 database = os.environ["DB_DATABASE"]
 
