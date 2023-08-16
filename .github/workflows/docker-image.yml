@@ -9,10 +9,10 @@ on:
 env:
   docker_hub_username: ${{ secrets.DOCKER_USERNAME }}
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
-  DB_USER: ${{ secrets.DB_USER }}
-  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  DB_HOST: ${{ secrets.DB_HOST }}
-  DB_DATABASE: ${{ secrets.DB_DATABASE }}
+  user_db: ${{ secrets.DB_USER }}
+  password_db: ${{ secrets.DB_PASSWORD }}
+  host_db: ${{ secrets.DB_HOST }}
+  database_db: ${{ secrets.DB_DATABASE }}
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
 jobs:
