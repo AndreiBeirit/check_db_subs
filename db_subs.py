@@ -11,11 +11,11 @@ database_db = os.environ["DB_DATABASE"]
 
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
-print("user_db:", os.environ["user"])
-print("password_db:", os.environ["password"])
-print("database_db:", os.environ["database"])
-print("host_db:", os.environ["host"])
-print("WEBHOOK_URL:", os.environ["webhook"])
+print("user_db:", os.environ["DB_USER"])
+print("password_db:", os.environ["DB_PASSWORD"])
+print("database_db:", os.environ["DB_DATABASE"])
+print("host_db:", os.environ["DB_HOST"])
+print("WEBHOOK_URL:",os.environ["SLACK_WEBHOOK"])
 
 # query = (
 #     "SELECT Email, EmailPassword, CreateDate FROM Accounts WHERE DATE(CreateDate) = DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND `Status` IN (1,2,5,9,15,20,21)"
