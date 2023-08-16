@@ -9,7 +9,7 @@ host_db = os.environ["host"]
 port_db = 1992
 database_db = os.environ["database"]
 
-WEBHOOK_URL = os.environ["webhook"]
+webhook_url = os.environ["webhook"]
 
 print("user_db:", os.environ["user"])
 print("password_db:", os.environ["password"])
@@ -46,7 +46,7 @@ print("WEBHOOK_URL:", os.environ["webhook"])
 #     headers = {"Content-type": "application/json"}
 #     payload = {"text": message}
 
-#     response = requests.post(f"{WEBHOOK_URL}", data=json.dumps(payload), headers=headers)
+#     response = requests.post(f"{webhook_url}", data=json.dumps(payload), headers=headers)
 
 #     if response.status_code != 200:
 #         raise ValueError(
