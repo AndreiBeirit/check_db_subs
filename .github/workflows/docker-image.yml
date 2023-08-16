@@ -9,11 +9,11 @@ on:
 env:
   docker_hub_username: ${{ secrets.DOCKER_USERNAME }}
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
-  host: ${{ secrets.DB_HOST }}
-  user: ${{ secrets.DB_USER }}
-  password: ${{ secrets.DB_PASSWORD }}
-  database: ${{ secrets.DB_DATABASE }}
-  webhook: ${{ secrets.SLACK_WEBHOOK }}
+  DB_USER: ${{ secrets.DB_USER }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  DB_DATABASE: ${{ secrets.DB_DATABASE }}
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
 jobs:
   BuildAndDeploy:
