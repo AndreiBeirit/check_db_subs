@@ -9,6 +9,12 @@ on:
 env:
   docker_hub_username: ${{ secrets.DOCKER_USERNAME }}
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
+  DB_USER: ${{ secrets.DB_USER }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  DB_PORT: ${{ secrets.DB_PORT }}
+  DB_DB: ${{ secrets.DB_DATABASE }}
+  WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
 jobs:
   BuildAndDeploy:
@@ -26,13 +32,6 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
-        env:
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_DB: ${{ secrets.DB_DB }}
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         with:
           context: .
           file: ./Dockerfile
