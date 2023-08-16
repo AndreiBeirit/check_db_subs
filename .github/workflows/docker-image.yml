@@ -48,11 +48,11 @@ jobs:
         port: 22
         script: |
           # Остановить и удалить существующий контейнер на удаленной машине
-          ssh username@host "sudo docker stop check_subs || true"
-          ssh username@host "sudo docker rm check_subs || true"
+          ssh ${{ secrets.DEPLOY_SSH_USERNAME }}@${{ secrets.DEPLOY_HOST }} "sudo docker stop check_subs || true"
+          ssh ${{ secrets.DEPLOY_SSH_USERNAME }}@${{ secrets.DEPLOY_HOST }} "sudo docker rm check_subs || true"
 
           # Подтянуть последний образ с Docker Hub на удаленной машине
-          ssh username@host "sudo docker pull phermaht/check_subs:latest"
+          ssh ${{ secrets.DEPLOY_SSH_USERNAME }}@${{ secrets.DEPLOY_HOST }} "sudo docker pull phermaht/check_subs:latest"
 
           # Запустить новый контейнер на удаленной машине
-          ssh username@host "sudo docker run -d --name check_subs phermaht/check_subs:latest"
+          ssh ${{ secrets.DEPLOY_SSH_USERNAME }}@${{ secrets.DEPLOY_HOST }} "sudo docker run -d --name check_subs phermaht/check_subs:latest"
