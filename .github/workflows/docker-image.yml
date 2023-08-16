@@ -7,6 +7,12 @@ on:
     branches: [ "main" ]
 
 env:
+  db_user: ${{ secrets.DB_USER }}
+  db_password: ${{ secrets.DB_PASSWORD }}
+  db_host: ${{ secrets.DB_HOST }}
+  db_port: ${{ secrets.DB_PORT }}
+  db_database: ${{ secrets.DB_DATABASE }}
+  slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
   docker_hub_username: ${{ secrets.DOCKER_USERNAME }}
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
 
