@@ -27,12 +27,12 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         env:
-          db_user: ${{ secrets.DB_USER }}
-          db_password: ${{ secrets.DB_PASSWORD }}
-          db_host: ${{ secrets.DB_HOST }}
-          db_port: ${{ secrets.DB_PORT }}
-          db_database: ${{ secrets.DB_DATABASE }}
-          slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DB: ${{ secrets.DB_DB }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         with:
           context: .
           file: ./Dockerfile
