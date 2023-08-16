@@ -15,12 +15,6 @@ RUN --mount=type=cache,target=/var/cache/apt \
     && touch /var/log/cron.log \
     && chmod 777 /var/log/cron.log
 
-ENV host=${DB_HOST}
-ENV user=${DB_USER}
-ENV password=${DB_PASSWORD}
-ENV database=${DB_DATABASE}
-ENV webhook=${SLACK_WEBHOOK}
-
 COPY . .
 
 COPY cronjob /etc/cron.d/cronjob
