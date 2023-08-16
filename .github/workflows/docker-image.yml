@@ -39,7 +39,7 @@ jobs:
         push: true
         tags: phermaht/check_subs:latest
 
-    - name: Deploy Docker
+    - name: Deploy to remote server
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.DEPLOY_HOST }}
@@ -47,12 +47,12 @@ jobs:
         key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          # Остановить и удалить существующий контейнер (если он существует)
-          docker stop sub_check || true
-          docker rm sub_check || true
+          # Остановить и удалить существующий контейнер на удаленной машине
+          ssh username@host "sudo docker stop check_subs || true"
+          ssh username@host "sudo docker rm check_subs || true"
 
-          # Подтянуть последний образ с Docker Hub
-          docker pull phermaht/check_subs:latest
+          # Подтянуть последний образ с Docker Hub на удаленной машине
+          ssh username@host "sudo docker pull phermaht/check_subs:latest"
 
-          # Запустить новый контейнер
-          docker run -d --name sub_check phermaht/check_subs:latest
+          # Запустить новый контейнер на удаленной машине
+          ssh username@host "sudo docker run -d --name check_subs phermaht/check_subs:latest"
