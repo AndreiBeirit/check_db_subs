@@ -3,12 +3,12 @@ import os
 import requests
 import json
 
-DB_USER = os.environ["user"]
-DB_PASSWORD = os.environ["password"]
-DB_HOST = os.environ["host"]
-DB_PORT = os.environ["port"]
-DB_DB = os.environ["database"]
-WEBHOOK_URL = os.environ["webhook"]
+DB_USER = os.environ["db_user"]
+DB_PASSWORD = os.environ["db_password"]
+DB_HOST = os.environ["db_host"]
+DB_PORT = os.environ["db_port"]
+DB_DB = os.environ["db_database"]
+WEBHOOK_URL = os.environ["slack_webhook"]
 
 db_config = {
     'user': DB_USER,
