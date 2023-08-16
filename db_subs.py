@@ -8,14 +8,7 @@ password_db = os.environ["password_db"]
 host_db = os.environ["host_db"]
 port_db = 1992
 database_db = os.environ["database_db"]
-
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
-
-print("user_db:", os.environ["user_db"])
-print("password_db:", os.environ["password_db"])
-print("database_db:", os.environ["database_db"])
-print("host_db:", os.environ["host_db"])
-print("WEBHOOK_URL:",os.environ["SLACK_WEBHOOK"])
 
 # query = (
 #     "SELECT Email, EmailPassword, CreateDate FROM Accounts WHERE DATE(CreateDate) = DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND `Status` IN (1,2,5,9,15,20,21)"
