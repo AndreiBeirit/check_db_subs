@@ -9,6 +9,7 @@ on:
 env:
   docker_hub_username: ${{ secrets.DOCKER_USERNAME }}
   docker_hub_pat: ${{ secrets.DOCKER_PASSWORD }}
+  DB_HOST: ${{ secrets.DB_HOST }}
   DB_USER: ${{ secrets.DB_USER }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
   DB_DB: ${{ secrets.DB_DATABASE }}
