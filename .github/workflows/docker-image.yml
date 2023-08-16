@@ -15,7 +15,7 @@ env:
   slack_webhook: ${{ secrets.WEBHOOK }}
 
 jobs:
-  build_and_pull:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +33,7 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
-    needs: [build_and_pull]
+    needs: [Build]
     steps:
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
