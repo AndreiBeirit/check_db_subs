@@ -26,6 +26,6 @@ ENV user=${user_db}
 ENV password=${password_db}
 ENV host=${host_db}
 ENV database=${database_db}
-ENV SLACK_WEBHOOK=${WEBHOOK_URL}
+ENV SLACK_WEBHOOK=${SLACK_WEBHOOK}
 
 CMD cron && tail -f /var/log/cron.log
