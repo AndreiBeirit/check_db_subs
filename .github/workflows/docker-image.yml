@@ -50,6 +50,7 @@ jobs:
               -e DB_USER="${{ secrets.DB_USER }}" \
               -e DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
               -e SLACK_WEBHOOK="${{ secrets.SLACK_WEBHOOK }}" \
+              -e DB_HOST="${{ secrets.DB_HOST }}" \
               phermaht/check_subs:latest
 
       # - name: Slack Notification
