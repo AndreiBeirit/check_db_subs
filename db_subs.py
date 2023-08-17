@@ -31,12 +31,12 @@ try:
     cursor.execute(query)
     results = cursor.fetchall()
     
-    with open('D:/sub_end.txt', 'w') as file:
+    with open('/app/sub_end.txt', 'w') as file:
         for row in results:
             email, password, create_date = row
             file.write(f"{email}:{password} - {create_date}\n")
     
-    with open("D:/sub_end.txt", "r") as f:
+    with open("/app/sub_end.txt", "r") as f:
         file_contents = f.read()
 
     if file_contents.strip():
