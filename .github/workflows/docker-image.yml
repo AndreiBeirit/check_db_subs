@@ -48,9 +48,10 @@ jobs:
   NotifyInSlack:
     needs: [BuildAndDeploy]
     runs-on: ubuntu-latest
-
     steps:
       - uses: craftech-io/slack-action@v1
         with:
           slack_webhook_url: ${{ secrets.RND_SLACK_WH }}
+          slack_channel: rnd-cicd-alerts
+          slack_username: wBot
         if: always()
