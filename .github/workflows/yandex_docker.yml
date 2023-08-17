@@ -1,4 +1,4 @@
-name: CheckDBsubs_CICD
+name: CheckDBsubsCICD
 
 on:
   push:
