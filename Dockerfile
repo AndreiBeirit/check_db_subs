@@ -22,7 +22,9 @@ COPY cronjob /etc/cron.d/cronjob
 RUN chmod 0644 /etc/cron.d/cronjob \
     && crontab /etc/cron.d/cronjob
 
+ENV DB_USER=$DB_USER
 ENV DB_PASSWORD=$DB_PASSWORD
-ENV SLACK_SUBS_WEBHOOK=$SLACK_SUBS_WEBHOOK
+ENV SLACK_WEBHOOK=$SLACK_WEBHOOK
+ENV DB_HOST=$DB_HOST
 
 CMD cron && tail -f /var/log/cron.log
