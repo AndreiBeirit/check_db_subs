@@ -45,18 +45,12 @@ jobs:
             docker pull phermaht/check_subs:latest
             docker run -d --name check_subs phermaht/check_subs:latest
 
-      - name: Slack success
-        if: success()
+      - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
-        with:
-          slack_webhook: ${{ secrets.RND_SLACK_WH }}
-          status: 'success'
-          fields: environment, commit, actor
-
-      - name: Slack failed
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        with:
-          slack_webhook: ${{ secrets.RND_SLACK_WH }}
-          status: 'failure'
-          fields: environment, commit, actor
+        env:
+          SLACK_CHANNEL: rnd-cicd-alerts
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_TITLE: Message
+          SLACK_USERNAME: wBot
+          SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
