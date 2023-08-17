@@ -53,13 +53,13 @@ jobs:
               -e DB_HOST="${{ secrets.DB_HOST }}" \
               phermaht/check_subs:latest
 
-      # - name: Slack Notification
-      #   uses: rtCamp/action-slack-notify@v2
-      #   if: always()
-      #   env:
-      #     SLACK_CHANNEL: rnd-cicd-alerts
-      #     SLACK_COLOR: ${{ job.status }}
-      #     SLACK_ICON: https://github.com/rtCamp.png?size=48
-      #     SLACK_TITLE: Commit message
-      #     SLACK_USERNAME: wBot
-      #     SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        if: always()
+        env:
+          SLACK_CHANNEL: rnd-cicd-alerts
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_TITLE: Commit message
+          SLACK_USERNAME: wBot
+          SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
