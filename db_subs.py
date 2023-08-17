@@ -5,17 +5,17 @@ import json
 
 DB_USER = os.environ["DB_USER"]
 DB_PASSWORD = os.environ["DB_PASSWORD"]
-DB_HOST = "84.201.187.79"
+DB_HOST = os.environ["DB_HOST"]
 DB_PORT = 1992
 DB_DB = "accounts"
 WEBHOOK_URL = os.environ["SLACK_WEBHOOK"]
 
 db_config = {
-    'user': {DB_USER},
-    'password': {DB_PASSWORD},
-    'host': {DB_HOST},
-    'port': {DB_PORT},
-    'database': {DB_DB}
+    'user': f"{DB_USER}",
+    'password': f"{DB_PASSWORD}",
+    'host': f"{DB_HOST}",
+    'port': f"{DB_PORT}",
+    'database': f"{DB_DB}"
 }
 
 query = (
@@ -47,7 +47,7 @@ try:
     headers = {"Content-type": "application/json"}
     payload = {"text": message}
 
-    response = requests.post(f"{webhook_url}", data=json.dumps(payload), headers=headers)
+    response = requests.post(f"{WEBHOOK_URL}", data=json.dumps(payload), headers=headers)
 
     if response.status_code != 200:
         raise ValueError(
