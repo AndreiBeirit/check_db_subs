@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
-        uses: docker1/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v1
 
       - name: Log in to Docker Hub with PAT
         run: docker login -u ${{ env.docker_hub_username }} -p ${{ env.docker_hub_pat }}
@@ -37,7 +37,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
-          key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+          key: 11${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
           port: 22
           script: |
             docker stop check_subs || true
@@ -55,7 +55,6 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
-          SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
+          SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Message
           SLACK_USERNAME: wBot
-          SLACK_MESSAGE: ${{ job.status == 'success' && 'Build and deploy successful!' || 'Build or deploy failed.' }}
