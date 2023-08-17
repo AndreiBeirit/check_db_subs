@@ -55,6 +55,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
           SLACK_TITLE: Message
           SLACK_USERNAME: wBot
+          SLACK_MESSAGE: ${{ job.status == 'success' && 'Build and deploy successful!' || 'Build or deploy failed.' }}
