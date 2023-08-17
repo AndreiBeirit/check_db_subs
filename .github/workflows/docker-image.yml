@@ -40,22 +40,22 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            # Ваши команды развертывания
             docker stop check_subs || true
             docker rm check_subs || true
             docker pull phermaht/check_subs:latest
             docker run -d --name check_subs phermaht/check_subs:latest
 
-  slackNotification:
+  NotifyInSlack:
     needs: [BuildAndDeploy]
     runs-on: ubuntu-latest
 
     steps:
-      - name: Slack notify
-        if: ${{ needs.BuildAndDeploy.result == 'failure' || needs.BuildAndDeploy.result == 'success' }}
+      - name: Notify in Slack
+        if: always()
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
           SLACK_TITLE: Message
           SLACK_USERNAME: wBot
+          SLACK_MESSAGE: ${{ job.status == 'success' && 'Build and deploy successful!' || 'Build or deploy failed.' }}
