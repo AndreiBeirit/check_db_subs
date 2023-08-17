@@ -47,6 +47,7 @@ jobs:
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
+        if: always()
         env:
           SLACK_CHANNEL: rnd-cicd-alerts
           SLACK_COLOR: ${{ job.status }}
