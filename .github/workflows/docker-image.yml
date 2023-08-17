@@ -44,11 +44,8 @@ jobs:
           script: |
             docker stop check_subs || true
             docker rm check_subs || true
-            echo "Listing images before pruning:"
             docker images
             docker image prune -f
-            echo "Listing images after pruning:"
-            docker images
             docker pull phermaht/check_subs:latest
             docker run -d \
               --name check_subs \
