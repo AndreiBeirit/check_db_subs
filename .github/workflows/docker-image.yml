@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: 111actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -36,7 +36,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_SSH_USERNAME }}
+          username: 111${{ secrets.DEPLOY_SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
           port: 22
           script: |
