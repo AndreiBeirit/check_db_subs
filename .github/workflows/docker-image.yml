@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: №№actions/checkout@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to remote server
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: #${{ secrets.DEPLOY_HOST }}
+          host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
           port: 22
@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Failure notify
-        if: failure()
+        if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
@@ -61,7 +61,7 @@ jobs:
           SLACK_USERNAME: wBot
 
       - name: Success notify
-        if: success()
+        if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
