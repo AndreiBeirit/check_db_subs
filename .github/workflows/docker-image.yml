@@ -47,7 +47,6 @@ jobs:
             docker run -d --name check_subs phermaht/check_subs:latest
 
   slackFailureNotification:
-    needs: [BuildAndDeploy]
     runs-on: ubuntu-latest
     steps:
       - name: Slack Notification
