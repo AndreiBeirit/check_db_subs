@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Slack notify
-        if: ${{ job.status }}
+        if: ${{ needs.BuildAndDeploy.result == 'failure' || needs.BuildAndDeploy.result == 'success' }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.RND_SLACK_WH }}
